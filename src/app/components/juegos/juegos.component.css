@@ -1,0 +1,14 @@
+.center,button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title
+{
+    font-style: italic;
+    color: orange;
+    font-weight: bolder;
+    text-align: center;
+}

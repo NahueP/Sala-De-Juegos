@@ -12,6 +12,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from './../environments/environment';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ChatComponent } from './components/chat/chat.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
 
 
 
@@ -25,6 +32,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     QuiensoyComponent,
     RegisterComponent,
     NavbarComponent,
+    ChatComponent,
+    
+  
     
   ],
   imports: [
@@ -34,6 +44,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
+  
     
    
   ],

@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="score-board">
+      <div id="user-label" class="badge">Jugador</div>
+      <div id="computer-label" class="badge">Bot</div>
+      <span id="user-score">{{ scores[0] }}</span>&nbsp;:&nbsp;<span id="computer-score">{{ scores[1] }}</span>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      
+      <div class="content1">
+          
+      </div>
+      <h3 > Elija su arma: </h3>
+      <br /><br />
+      <div  class="content2">
+          <button (click)="pick(0)" [ngClass]="{'selectedWeapon':(playerSelected === 0)}" ><img src="./../../../../assets/imagenes/piedra.png" width="150" height="100" class="center"></button>
+          <button (click)="pick(1)" [ngClass]="{'selectedWeapon':(playerSelected === 1)}" ><img src="./../../../../assets/imagenes/papel.png" width="150" height="100" class="center"></button>
+          <button (click)="pick(2)" [ngClass]="{'selectedWeapon':(playerSelected === 2)}" ><img src="./../../../../assets/imagenes/tijera.png" width="150" height="100" class="center"></button>
+       </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="result">
+          <div *ngIf="!loading && isResultShow" class="flex-container flex-center" style="flex-direction: column">
+              <div [ngSwitch]="theResult">
+            <ng-template [ngSwitchCase]= "0"> <h1> Ganaste! :) </h1></ng-template>
+            <ng-template [ngSwitchCase]= "1"> <h1> Perdiste :( </h1> </ng-template>
+            <ng-template [ngSwitchCase]= "2"> <h1> Empate </h1> </ng-template>
+            <ng-template ngSwitchDefault> </ng-template>
+          </div> 
+              <p> Elija denuevo para continuar...</p>
+              
+          </div>
+      </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="computer-choice">
+        <div class="content1">
+          <h3>  Arma del bot: </h3>
+        
+      </div>
+      <br /><br />
+      <div *ngIf="enemySelected !== -1" class="flex-container flex-center" >
+        <button class=comp-selected *ngIf="enemySelected === 0" ><img src="./../../../../assets/imagenes/piedra.png" width="150" height="100" class="center"></button>
+        <button class=comp-selected *ngIf="enemySelected === 1" ><img src="./../../../../assets/imagenes/papel.png" width="150" height="100" class="center"></button>
+        <button class=comp-selected *ngIf="enemySelected === 2" ><img src="./../../../../assets/imagenes/tijera.png" width="150" height="100" class="center"></button>           
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div class="start-over">
+      <button  (click)="reset()" class="btn btn-primary start-over">Reiniciar Puntos</button>
+  </div>

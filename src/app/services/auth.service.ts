@@ -1,63 +1,82 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import firebase from 'firebase/app';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
 import { Usuario } from './../clases/usuario';
+import Swal from 'sweetalert2';
 
 
 @Injectable()
 export class AuthService {
 
   
+  private user: Observable<firebase.default.User>;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) { }
-
-  async login(usuario:Usuario,password:string)
+  constructor(public afAuth: AngularFireAuth,private authSvc: AngularFireDatabase ,private router: Router) 
   {
-    try
-    {
-      const result = await this.afAuth.signInWithEmailAndPassword(usuario.correo,password);
-      return result;
-      
-    }
-    catch(error)
-    {
-      console.log(error);
-      alert(error);
-    }
+    this.user = afAuth.authState;
   }
 
-  async register(usuario:Usuario, password:string)
+  authUser() {
+    return this.user;
+  }
+
+  getCurrentUser(){
+    return this.afAuth.authState;
+  }
+
+ 
+
+  async login(usuario:Usuario)
   {
-    try
-    {
-      const result = await this.afAuth.createUserWithEmailAndPassword(usuario.correo,password);
-      return result;
-    }
-    catch(error)
-    {
-      console.log(error);
-      alert(error);
-    }
+   try
+   { 
+      return await this.afAuth.signInWithEmailAndPassword(usuario.correo,usuario.clave)
+   }
+   catch(error)
+   {
+     return error;
+   }  
+  }
+
+  async register(usuario:Usuario)
+  {
+    
+      return this.afAuth.createUserWithEmailAndPassword(usuario.correo,usuario.clave)
+      .then((user)=>{    
+        this.setUserData(usuario,user.user.uid);
+        user.user.updateProfile({displayName: usuario.nombre});
+        this.router.navigate(['/home']);
+      }).catch(error=> Swal.fire({
+        icon:"error",
+        title:"El usuario ya esta registrado!",
+        text: "Intente nuevamente"
+      }));
+
+   
+    
   }
 
   async logout()
   {
-    try
-    {
-      await this.afAuth.signOut();
-    }
-    catch(error)
-    {
-      console.log(error);
-      alert(error);
-    }
+  
+    await this.afAuth.signOut();
+  
   }
 
-  getCurrentUser()
-  {
-    return this.afAuth.authState.pipe(first()).toPromise();
+
+  setUserData(usuario : Usuario, auState:string): void{
+    const path = `users/${auState}`;
+    const data = {
+      email: usuario.correo,
+      displayName: usuario.nombre,
+    };
+    this.authSvc.object(path).update(data).catch(error=>console.log(error));
+    
   }
-  
+
+ 
+
+
 }

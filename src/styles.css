@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
+@import "~font-awesome/css/font-awesome.min.css"; 
+@import "~bootstrap/dist/css/bootstrap.min.css"; 
+
+
+
+
+body{
+
+    background-image:  url("./assets/imagenes/7c0a7d56942961.59c270e423e8a.gif"); 
+    background-color: transparent;
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-attachment:fixed; 
+    background-size:100% 100%;
+
+}     
+
+
+*
+{
+    font-family: Asap, sans-serif;
+} 

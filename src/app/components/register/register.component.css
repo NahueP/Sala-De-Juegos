@@ -1,0 +1,14 @@
+
+.center-span{
+    display:block;
+    text-align: center;
+}
+.error-message {
+    color: rgb(255, 0, 0);
+}
+
+.row
+{
+    display: contents;
+}
+  
