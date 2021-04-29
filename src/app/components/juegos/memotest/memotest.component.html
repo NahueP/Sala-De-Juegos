@@ -32,10 +32,10 @@
   </nav>
 
   <div class="container">
-    <!-- <div class="alert alert-dismissible alert-warning fade in" role="alert" *ngIf="mostrarAlerta">
+    <div class="alert alert-dismissible alert-warning fade in" role="alert" *ngIf="mostrarAlerta">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <strong>Información!</strong> El juego ha comenzado!
-    </div> -->
+    </div> 
     <app-cronometro 
     [tiempoMinutos]="nivelSeleccionado ? nivelSeleccionado.tiempoMinutos : null" 
     [juegoIniciado]="juegoIniciado"
@@ -43,5 +43,5 @@
     <app-tablero [cantidadFichas]="nivelSeleccionado ? nivelSeleccionado.cantidadFichas : null" *ngIf="juegoIniciado"></app-tablero>
   </div>
 
-<h2>No esta terminado</h2>
+
     

@@ -9,6 +9,7 @@ export class CronometroComponent implements OnInit {
 
   tiempoRestante: Date = null;
   timer: any = null;
+  guardarTiempo : string;
 
   @Input()
   set tiempoMinutos(tiempoMinutos) {
@@ -17,14 +18,18 @@ export class CronometroComponent implements OnInit {
   _tiempoMinutos: number;
 
   @Input()
-  set juegoIniciado(juegoIniciado) {
+  set juegoIniciado(juegoIniciado) 
+  {
     this._juegoIniciado = juegoIniciado;
-    if (this._juegoIniciado) {
+    if (this._juegoIniciado) 
+    {
       this.tiempoRestante = new Date(this.tiempoRestante.setMinutes(
         this.tiempoRestante.getMinutes() + this._tiempoMinutos
       ));
       this.iniciar();
-    } else {
+    }
+    else 
+    {
       this.detener();
     }
   }
@@ -50,9 +55,13 @@ export class CronometroComponent implements OnInit {
   }
 
   detener() {
-    if (this.timer) {
+    if (this.timer) 
+    {
       clearTimeout(this.timer);
+      this.guardarTiempo = this.tiempoRestante.getMinutes() + ":" +  this.tiempoRestante.getSeconds();
+      console.log(this.guardarTiempo);
       this.timer = null;
+      
     }
     this.tiempoRestante = new Date(0, 0, 0, 0, 0, 0, 0);
     this.tiempoTerminado.emit();

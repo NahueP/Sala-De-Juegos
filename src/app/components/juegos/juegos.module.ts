@@ -10,7 +10,14 @@ import { MemotestComponent } from './memotest/memotest.component';
 import { CronometroComponent } from './memotest/cronometro/cronometro.component';
 import { TableroComponent } from './memotest/tablero/tablero.component';
 import { TarjetaComponent } from './memotest/tarjeta/tarjeta.component';
-import { FormsModule } from '@angular/forms';
+
+ import { TableroService } from './memotest/servicios/tablero.service';
+ import { TarjetaService } from './memotest/servicios/tarjeta.service';
+import { QuinceComponent } from './quince/quince.component';
+import { BoardComponent } from './quince/board/board.component';
+import { StateComponent } from './quince/state/state.component';
+import { TileComponent } from './quince/tile/tile.component';
+
 
 
 
@@ -24,6 +31,10 @@ import { FormsModule } from '@angular/forms';
     CronometroComponent,
     TableroComponent,
     TarjetaComponent,
+    QuinceComponent,
+    BoardComponent,
+    StateComponent,
+    TileComponent,
     
     
     
@@ -31,9 +42,14 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     JuegosRoutingModule,
-    FormsModule,
     
     
+    
+  ],
+  providers:
+  [
+    TarjetaService,
+    TableroService
   ]
   
 })

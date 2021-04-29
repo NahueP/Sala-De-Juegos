@@ -6,7 +6,7 @@ import { TarjetaService } from '../servicios/tarjeta.service';
   selector: 'app-tarjeta',
   templateUrl: './tarjeta.component.html',
   styleUrls: ['./tarjeta.component.css'],
-  providers: [TarjetaService]
+  
 })
 export class TarjetaComponent implements OnInit {
 

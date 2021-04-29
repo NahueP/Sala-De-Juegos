@@ -6,9 +6,11 @@ export class TarjetaService {
 
     private primerTarjetaAComparar: ITarjeta;
     private segundaTarjetaAComparar: ITarjeta;
-    private aciertos: number;
+    public aciertos: number;
 
-    constructor() {}
+    constructor() {
+        
+    }
 
     mostrarTarjeta(tarjeta: ITarjeta) {
         if (this.isEmpty(this.primerTarjetaAComparar) && this.isEmpty(this.segundaTarjetaAComparar)) {
@@ -23,13 +25,19 @@ export class TarjetaService {
         }
     }
 
-    comparar(tarjeta1:any, tarjeta2:any) {
+    comparar(tarjeta1:any, tarjeta2:any) 
+    {
         this.primerTarjetaAComparar = null;
         this.segundaTarjetaAComparar = null;
-        if (tarjeta1.nombre === tarjeta2.nombre) {
+        if (tarjeta1.nombre === tarjeta2.nombre) 
+        {
             this.aciertos++;
-        } else {
-            setTimeout(function(){
+            console.log(this.aciertos);
+        } 
+        else 
+        {
+            setTimeout(function()
+            {
                 tarjeta1.visible = false;
                 tarjeta2.visible = false;
             }, 1000);

@@ -1,4 +1,5 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { TarjetaService } from './servicios/tarjeta.service';
 
 @Component({
   selector: 'app-memotest',
@@ -29,27 +30,23 @@ export class MemotestComponent implements OnInit {
       tiempoMinutos: 4,
       cantidadFichas: 20
     },
-    // {
-    //   id: 3,
-    //   nombre: 'Extremo',
-    //   tiempoMinutos: 5,
-    //   cantidadFichas: 25
-    // }
   ];
   nombre: string = null;
   nivelSeleccionado: any = null;
 
-  constructor() {
+  constructor(private tarjetaSvc : TarjetaService) {
     
   }
 
   ngOnInit() {
     this.juegoIniciado = false;
+    
   }
 
   iniciar() {
     this.juegoIniciado = true;
     this.mostrarAlerta = true;
+    this.tarjetaSvc.aciertos = 0;
     setTimeout(function() {
       this.mostrarAlerta = false;
     }.bind(this), 2000);

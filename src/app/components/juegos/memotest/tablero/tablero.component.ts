@@ -7,7 +7,6 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   selector: 'app-tablero',
   templateUrl: './tablero.component.html',
   styleUrls: ['./tablero.component.css'],
-  providers: [TableroService],
   animations: [
     trigger('tarjetasAnimation', [
       state('in', style({opacity: 1, transform: 'translateX(0)'})),

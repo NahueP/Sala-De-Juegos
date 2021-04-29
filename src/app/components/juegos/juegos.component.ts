@@ -24,6 +24,11 @@ export class JuegosComponent implements OnInit {
     location.assign('./juegos/memotest');
   }
 
+  jugarQuince()
+  {
+    location.assign('./juegos/quince');
+  }
+
   ngOnInit(): void {
   }
 

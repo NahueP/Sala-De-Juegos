@@ -4,11 +4,14 @@ import { JuegosComponent } from './juegos.component';
 import { PiedraPapelTijeraComponent } from './piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './tateti/tateti.component';
 import { MemotestComponent } from './memotest/memotest.component';
+import { QuinceComponent } from './quince/quince.component';
+
 
 const routes: Routes = [
   {path: 'tateti', component: TatetiComponent},
   {path: 'piedra-papel-tijera', component: PiedraPapelTijeraComponent},
   {path: 'memotest', component: MemotestComponent},
+  {path: 'quince', component: QuinceComponent},
   {path: '', component: JuegosComponent},
    
   ];

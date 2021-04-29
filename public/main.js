@@ -917,6 +917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/core */ "fXoL");
 
+// import * as Hammer from 'hammerjs';
 
 
 
@@ -981,7 +982,7 @@ class QuiensoyComponent {
     }
 }
 QuiensoyComponent.ɵfac = function QuiensoyComponent_Factory(t) { return new (t || QuiensoyComponent)(); };
-QuiensoyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: QuiensoyComponent, selectors: [["app-quiensoy"]], decls: 12, vars: 0, consts: [[1, "jumbotron"], [1, "display-4", 2, "text-align", "center"], ["src", "./../../../assets/imagenes/yo.jpg", "alt", "yo", "width", "260", "height", "300", 1, "center"], [1, "lead", 2, "text-align", "center", "font-size", "large"], [1, "my-2"], [1, "lead"]], template: function QuiensoyComponent_Template(rf, ctx) { if (rf & 1) {
+QuiensoyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: QuiensoyComponent, selectors: [["app-quiensoy"]], decls: 14, vars: 0, consts: [[1, "jumbotron"], [1, "display-4", 2, "text-align", "center"], ["src", "./../../../assets/imagenes/yo.jpg", "alt", "yo", "width", "260", "height", "300", 1, "center"], [1, "lead", 2, "text-align", "center", "font-size", "large"], [1, "my-2"], [2, "font-style", "italic", "text-decoration", "underline"], [1, "lead"]], template: function QuiensoyComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Hola, mundo!");
@@ -993,10 +994,13 @@ QuiensoyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "hr", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Esta sala de juegos fue desarrollada en Angular");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Esta sala de juegos fue desarrollada en Angular, la misma contiene 3 juegos clasicos + 1 juego elegido por mi mismo. Ademas, tiene un chatroom para conversar con otros usuarios.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " (Agregar explicacion de juego propio) ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "h4", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Mi juego: \"Juego del 15\" ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, " El juego del 15 es una cajita formada por 16 casillas de las cuales s\u00F3lo quince est\u00E1n ocupadas. Todas las fichas est\u00E1n colocadas en orden num\u00E9rico, excepto la 14 y la 15, que tienen sus posiciones intercambiadas. El juego consiste en maniobrar todas las fichas para corregir el error que hay en la fila inferior de la cajita, de manera que todas las fichas queden en orden consecutivo. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, styles: [".center[_ngcontent-%COMP%], .card[_ngcontent-%COMP%] {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\nimg[_ngcontent-%COMP%] {\r\n    border: 3px solid grey;\r\n    margin: 0;\r\n    padding: 0;\r\n    border-radius: 800px;\r\n    overflow: hidden;\r\n    }\r\n\r\ndiv[_ngcontent-%COMP%]{\r\n    background-color: rgb(49, 49, 49);\r\n    \r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInF1aWVuc295LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0lBRUksY0FBYztJQUNkLGlCQUFpQjtJQUNqQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxzQkFBc0I7SUFDdEIsU0FBUztJQUNULFVBQVU7SUFDVixvQkFBb0I7SUFDcEIsZ0JBQWdCO0lBQ2hCOztBQUVKO0lBQ0ksaUNBQWlDOztBQUVyQyIsImZpbGUiOiJxdWllbnNveS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNlbnRlcixcclxuLmNhcmQge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIG1hcmdpbi1yaWdodDogYXV0bztcclxufVxyXG5cclxuaW1nIHtcclxuICAgIGJvcmRlcjogM3B4IHNvbGlkIGdyZXk7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgYm9yZGVyLXJhZGl1czogODAwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgfVxyXG5cclxuZGl2e1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDQ5LCA0OSwgNDkpO1xyXG4gICAgXHJcbn1cclxuXHJcbiJdfQ== */"] });

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule,HammerModule,HammerGestureConfig,HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+// import * as Hammer from 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ChatComponent } from './components/chat/chat.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
