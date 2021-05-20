@@ -13,7 +13,7 @@
           Jugar primero
         </label>
       </div>
-      <div style="margin: 0.5rem;">
+      <!-- <div style="margin: 0.5rem;">
         <input
           type="checkbox"
           id="easy"
@@ -25,7 +25,7 @@
         <label for="easy" style="font-size: 1.25rem;">
           Modo facil
         </label>
-      </div>
+      </div> -->
       <button type="button" class="new-game" (click)="newGame()">
         Comenzar nuevo juego
       </button>
@@ -33,6 +33,7 @@
     <section *ngIf="board">
       <div class="status">
         {{ statusMessage }}
+        ({{ playerScore}} : {{aiScore}})
       </div>
       <div class="board">
         <div *ngFor="let row of [0, 1, 2]" class="board-row">
@@ -44,6 +45,11 @@
             (click)="move(row, col)"
           ></app-celda>
         </div>
+      </div>
+      <br>
+      <button type="button" class="reset-score" (click)="resetScore()">Reiniciar Puntaje</button>
+      <div class="divbtn" *ngIf="user$ | async as user;">
+      <button type="button" class="save-score" (click)="guardarPuntaje()" *ngIf="user" >Guardar Puntaje</button>
       </div>
     </section>
   </div>

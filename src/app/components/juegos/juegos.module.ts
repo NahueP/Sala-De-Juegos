@@ -21,6 +21,7 @@ import { TileComponent } from './quince/tile/tile.component';
 
 
 
+
 @NgModule({
   declarations: [
     JuegosComponent,
@@ -42,6 +43,7 @@ import { TileComponent } from './quince/tile/tile.component';
   imports: [
     CommonModule,
     JuegosRoutingModule,
+    
     
     
     

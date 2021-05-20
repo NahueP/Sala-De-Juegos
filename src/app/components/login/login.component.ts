@@ -77,11 +77,6 @@ export class LoginComponent implements OnInit {
     catch(error)
     {
       console.log(error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Usuario Inexistente!',
-        text: 'Es posible que los datos no sean correctos, intente nuevamente',
-      });
     }
     
   }

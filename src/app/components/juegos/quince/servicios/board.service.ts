@@ -18,12 +18,12 @@ export class BoardService {
   private initialContent = [];
   finished = false;
 
-  elapsedSeconds = 0;
+  elapsedSeconds = 0; // tiempo
 
   private timerSrc = null;
   private timerSub = null;
 
-  movesCount = 0;
+  movesCount = 0; // movimientos
   private movesStack = [];
 
   constructor() {
@@ -63,7 +63,10 @@ export class BoardService {
 
     this.timerSrc = timer(1000, 1000);
     this.timerSub = this.timerSrc.subscribe(() => {
-      this.elapsedSeconds++;
+      if(this.finished == false)
+      {
+        this.elapsedSeconds++;
+      }
     });
   }
 
@@ -90,7 +93,8 @@ export class BoardService {
     this.content[nullIndex] = sourceValue;
   }
 
-  isCompleted() {
+  isCompleted() 
+  {
     return JSON.stringify(this.content) === JSON.stringify(this.completed);
   }
 

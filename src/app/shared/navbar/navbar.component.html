@@ -9,8 +9,14 @@
         <li class="nav-item active" >
           <a class="nav-link" [routerLink]="['/juegos']">Juegos</a>
         </li>
-        <li class="nav-item active" >
-          <a class="nav-link" [routerLink]="['/home']">Listados</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Listados</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" [routerLink]="['/listados/listado-tateti']">Tateti</a>
+            <a class="dropdown-item" [routerLink]="['/listados/listado-ppt']">Piedra Papel Tijera</a>
+            <a class="dropdown-item" [routerLink]="['/listados/listado-memotest']">Memotest</a>
+            <a class="dropdown-item" [routerLink]="['/listados/listado-quince']">Juego del 15</a>
+          </div>
         </li>
         <li class="nav-item active" >
           <a class="nav-link" [routerLink]="['/quiensoy']">¿Quién soy?</a>
@@ -20,8 +26,11 @@
         <li class="nav-item active" *ngIf="user" >
           <a class="nav-link"  [routerLink]="['/chat']">Chat</a>
         </li>
+        <li class="nav-item active" *ngIf="user" >
+          <a class="nav-link"  [routerLink]="['/encuesta']">Encuesta</a>
+        </li>
         <li class ="nav-item">
-          <a class="nav-link">Bienvenido! {{user?.email|json}}</a>
+          <a class="nav-link">Bienvenido! {{user?.displayName|json}}</a>
         </li>
         <li class="nav-item active" *ngIf="user">
           <a class="nav-link" [routerLink]="['/home']" (click)="onLogout()" >Cerrar sesión</a>
@@ -40,3 +49,5 @@
       </ng-template>
     </div>
   </nav>
+
+  

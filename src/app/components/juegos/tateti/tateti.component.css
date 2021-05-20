@@ -42,6 +42,32 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.reset-score
+{
+  width: 20%;
+  color: #fff;
+  background-color: #ff7b00;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 40%;
+  
+  
+}
+
+.save-score
+{
+  width: 20%;
+  color: black;
+  background-color: skyblue;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 40%;
+
+}
+
 .new-game:hover {
   cursor: pointer;
 }

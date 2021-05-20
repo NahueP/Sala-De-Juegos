@@ -10,6 +10,9 @@ import { TarjetaService } from '../servicios/tarjeta.service';
 })
 export class TarjetaComponent implements OnInit {
 
+
+  
+
   @Input()
   set infoTarjeta(infoTarjeta:any)
   {
@@ -18,6 +21,8 @@ export class TarjetaComponent implements OnInit {
   _infoTarjeta: ITarjeta;
 
   constructor(private actions: TarjetaService) { }
+
+ 
 
   ngOnInit() {
   }

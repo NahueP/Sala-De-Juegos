@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Button } from 'selenium-webdriver';
+import { PuntajesService } from '../../../services/puntajes.service';
+import { Puntos } from '../../../clases/puntos';
+import { Usuario } from '../../../clases/usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 
 
 @Component({
   selector: 'app-piedra-papel-tijera',
   templateUrl: './piedra-papel-tijera.component.html',
-  styleUrls: ['./piedra-papel-tijera.component.css']
+  styleUrls: ['./piedra-papel-tijera.component.css'],
+  providers: [AuthService]
 })
 export class PiedraPapelTijeraComponent implements OnInit {
 
@@ -27,8 +33,12 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
   isClicked : boolean = false;
 
+  puntaje : Puntos = new Puntos();
 
-  constructor() { }
+  public user$ : Observable<any>= this.authSvc.afAuth.user;
+
+
+  constructor(private authSvc : AuthService, private puntajeSvc : PuntajesService) { }
 
 
   pick( weapon: number): void {
@@ -74,9 +84,48 @@ export class PiedraPapelTijeraComponent implements OnInit {
      }
   }
 
+  guardarPuntaje()
+  {
+    Swal.fire({
+      title: '¿Desea guardar este puntaje?',
+      showDenyButton: true,
+      confirmButtonText: `Guardar`,
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed && (this.scores[0] != 0 || this.scores[1] != 0)) 
+      {
+        this.puntaje.victorias = this.scores[0];
+        this.puntaje.derrotas = this.scores[1];
+
+        this.puntajeSvc.AgregarPuntaje(this.puntaje);
+        
+        Swal.fire('¡Se guardo el puntaje!', '', 'success');
+        
+      } 
+      else 
+      {
+        if (result.isDenied) 
+        {
+          Swal.fire('No se ha guardado el puntaje', '', 'info');
+        }
+        else
+        {
+          Swal.fire('ERROR', 'Debe jugar al menos 1 vez!', 'error');
+        }
+      }
+    })
+  }
   
 
   ngOnInit(): void {
+    this.authSvc.getCurrentUser().subscribe(user=>{
+      if(user != null)
+      {
+        this.puntaje.usuario = user.displayName;
+        this.puntaje.fecha = new Date().toLocaleDateString();
+        this.puntaje.juego = "piedra-papel-tijera";
+      }
+    });
   }
 
 }

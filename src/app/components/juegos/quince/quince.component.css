@@ -9,3 +9,15 @@
   hr {
     border: none;
   }
+
+  .save-score
+{
+  width: 20%;
+  color: black;
+  background-color: skyblue;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 40%;
+
+}

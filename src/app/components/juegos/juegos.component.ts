@@ -14,9 +14,19 @@ export class JuegosComponent implements OnInit {
     location.assign('./juegos/tateti');
   }
 
+  listadoTateti()
+  {
+    location.assign('./listados/listado-tateti');
+  }
+
   jugarPPT()
   {
     location.assign('./juegos/piedra-papel-tijera');
+  }
+
+  listadoPpt()
+  {
+    location.assign('./listados/listado-ppt');
   }
 
   jugarMemotest()
@@ -24,9 +34,19 @@ export class JuegosComponent implements OnInit {
     location.assign('./juegos/memotest');
   }
 
+  listadoMemotest()
+  {
+    location.assign('./listados/listado-memotest');
+  }
+
   jugarQuince()
   {
     location.assign('./juegos/quince');
+  }
+
+  listadoQuince()
+  {
+    location.assign('./listados/listado-quince');
   }
 
   ngOnInit(): void {

@@ -51,7 +51,7 @@
     </div>
   </div>
   </div>
-  
-  <div class="start-over">
-      <button  (click)="reset()" class="btn btn-primary start-over">Reiniciar Puntos</button>
+  <button  (click)="reset()" class="btn-reset">Reiniciar Puntos</button>
+  <div *ngIf="user$ | async as user;">
+    <button  (click)="guardarPuntaje()" class="btn-score">Guardar Puntaje</button>
   </div>

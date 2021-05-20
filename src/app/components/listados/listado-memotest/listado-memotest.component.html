@@ -1,0 +1,21 @@
+<h2 style="background-color: gold; text-align: center; color: black;">Tabla de Puntajes: Memotest</h2>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Jugador</th>
+        <th scope="col">Dificultad</th>
+        <th scope="col">Tiempo</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody > 
+      <tr class="table-warning" *ngFor="let puntos of puntajeFire$ | async" style="font-weight: bold;">
+        <ng-container *ngIf="puntos.juego=='memotest'">
+        <th scope="row">{{puntos.usuario}}</th>
+        <td>{{puntos.dificultad}}</td>
+        <td>{{puntos.tiempo}}</td>
+        <td>{{puntos.fecha}}</td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>

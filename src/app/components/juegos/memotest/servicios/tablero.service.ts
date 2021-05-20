@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ITarjeta } from './../interface/itarjeta'
+import { Pais } from '../../../../clases/pais';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable(
     
@@ -11,6 +14,27 @@ export class TableroService {
     'fa-youtube', 'fa-angellist', 'fa-wifi', 'fa-tint', 'fa-life-ring', 'fa-suitcase', 'fa-futbol-o',
     'fa-motorcycle', 'fa-leaf', 'fa-eye', 'fa-coffee', 'fa-bullseye', 'fa-plane' ];
 
+
+    // paises : Pais[] =  [];
+
+    // constructor(public http : HttpClient)
+    // {
+        
+    // }
+
+    // public httpGetO<T>( url: string) 
+    // {
+    //     return this.http.get<T>('https://restcountries.eu/rest/v2/region' + url );
+    // }
+
+    //  public TraerPaises() : Observable<Pais[]>
+    //  {
+    //     return this.httpGetO<Pais[]>('/americas');
+    //  }
+  
+     
+    
+
     mezclar(tarjetas: ITarjeta[]) {
         const newArr = tarjetas.slice();
         for (let i = newArr.length; i; i -= 1) {
@@ -21,6 +45,10 @@ export class TableroService {
         }
         return newArr;
     }
+
+ 
+    
+    
 
     getTarjetas(cantidadTarjetas:any) {
         let tarjetas = this.NombreTarjetas.slice(0, cantidadTarjetas).map(t => ({

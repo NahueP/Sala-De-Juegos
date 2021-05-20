@@ -1,22 +1,70 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { BoardService } from './servicios/board.service';
 import { keyToDirection } from './defs';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { PuntajesService } from '../../../services/puntajes.service';
+import { Puntos } from '../../../clases/puntos';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-quince',
   templateUrl: './quince.component.html',
-  styleUrls: ['./quince.component.css']
+  styleUrls: ['./quince.component.css'],
+  providers: [AuthService]
 })
 export class QuinceComponent implements OnInit {
 
   title = 'Fifteen Game';
+  
+  puntaje : Puntos = new Puntos();
+  public user$ : Observable<any>= this.authSvc.afAuth.user;
 
-  constructor(
-    public boardService: BoardService,
-  ) {}
+  constructor(public boardService: BoardService,private authSvc : AuthService, private puntajeSvc : PuntajesService) {}
 
   ngOnInit() {
     this.boardService.initGame();
+
+    this.authSvc.getCurrentUser().subscribe(user=>{
+      if(user != null)
+      {
+        this.puntaje.usuario = user.displayName;
+        this.puntaje.fecha = new Date().toLocaleDateString();
+        this.puntaje.juego = "quince";
+      }
+    });
+  }
+
+  guardarPuntaje()
+  {
+    Swal.fire({
+      title: '¿Desea guardar este puntaje?',
+      showDenyButton: true,
+      confirmButtonText: `Guardar`,
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+    
+      if (result.isConfirmed && this.boardService.finished == true)  
+      {
+        this.puntaje.tiempo = this.boardService.elapsedSeconds.toString();
+        this.puntaje.movimientos = this.boardService.movesCount;
+        this.puntajeSvc.AgregarPuntaje(this.puntaje);
+        Swal.fire('¡Se guardo el puntaje!', '', 'success');
+        
+      } 
+      else 
+      {
+        if (result.isDenied) 
+        {
+          Swal.fire('No se ha guardado el puntaje', '', 'info');
+        }
+        else
+        {
+          Swal.fire('ERROR', 'Debe jugar y terminar el puzzle al menos 1 vez!', 'error');
+        }
+      }
+    
+  })
   }
 
   @HostListener('document:keydown', ['$event'])

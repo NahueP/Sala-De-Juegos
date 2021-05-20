@@ -3,3 +3,7 @@
 <app-state></app-state>
 <hr>
 <app-board></app-board>
+
+<div class="divbtn" *ngIf="user$ | async as user;">
+    <button type="button" class="save-score" (click)="guardarPuntaje()"  *ngIf="user" >Guardar Puntaje</button>
+</div>

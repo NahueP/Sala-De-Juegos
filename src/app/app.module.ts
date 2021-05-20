@@ -16,6 +16,11 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ChatComponent } from './components/chat/chat.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 
@@ -35,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     NavbarComponent,
     ChatComponent,
-    
+    EncuestaComponent,
+   
   
     
   ],
@@ -47,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   
     
    

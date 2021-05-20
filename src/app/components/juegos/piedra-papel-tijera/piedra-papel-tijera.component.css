@@ -125,10 +125,27 @@
   .comp-selected{
     background-color: red;
   }
-  .start-over {
-    position: fixed;
-    left: 46%;    
-    bottom:80px;
-    font-size: 18px;
-    padding: 10px 15px;
-  }
+ 
+
+.btn-reset
+{
+  width: 20%;
+  color: #fff;
+  background-color: #ff7b00;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 40%;
+  
+  
+}
+
+.btn-score{
+  width: 20%;
+  color: black;
+  background-color: skyblue;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 40%;
+}

@@ -32,11 +32,15 @@ export class AuthService {
   {
    try
    { 
-      return await this.afAuth.signInWithEmailAndPassword(usuario.correo,usuario.clave)
+      return await this.afAuth.signInWithEmailAndPassword(usuario.correo,usuario.clave);
    }
    catch(error)
    {
-     return error;
+    Swal.fire({
+      icon: 'error',
+      title: 'Usuario Inexistente!',
+      text: 'Es posible que los datos no sean correctos, intente nuevamente',
+    });
    }  
   }
 
